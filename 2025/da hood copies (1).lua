@@ -473,7 +473,8 @@ do
     -- > ( drawing proxy )
 
     local drawing_proxy = {}
-    local create1 = identifyexecutor() == "AWP" and Drawing["new"] or drawing["new"]
+   local create1 = Drawing and Drawing.new
+
 
     drawing_proxy.new = identifyexecutor() == "AWP" and LPH_NO_VIRTUALIZE(function(class, properties)
         local object = create1(class)
